@@ -1,0 +1,39 @@
+{% block direccion_row %}
+    <fieldset class="form-group-fielset">
+    <legend class="form-group-legend">-Direccion-</legend>
+    
+        <div class="form-group">
+        {{ form_label(form.direccion1) }}
+        {{ form_widget(form.direccion1) }}
+        {{ form_help(form.direccion1) }}
+        {{ form_errors(form.direccion1) }}
+        </div>
+        <div class="form-group">
+        {{ form_label(form.direccion2) }}
+        {{ form_widget(form.direccion2) }}
+        {{ form_help(form.direccion2) }}
+        {{ form_errors(form.direccion2) }}
+        </div>
+        <div class="form-group">
+        {{ form_label(form.localidad) }}
+        {{ form_widget(form.localidad) }}
+        {{ form_help(form.localidad) }}
+        {{ form_errors(form.localidad) }}
+        </div>
+        <div class="form-group">
+        {{ form_label(form.cp) }}
+        {{ form_widget(form.cp) }}
+        {{ form_help(form.cp) }}
+        {{ form_errors(form.cp) }}
+        </div>
+        <div class="form-group">
+        {{ form_label(form.provincia) }}
+        {{ form_widget(form.provincia) }}
+        {{ form_help(form.provincia) }}
+        {{ form_errors(form.provincia) }}
+        </div>
+        
+    </fieldset>
+{% endblock %}
+
+

@@ -1,0 +1,35 @@
+
+{% extends 'base.html.twig' %}
+   {% block title %} 
+       Categorias
+   {% endblock %}
+    {% block cnt_inner %}
+    <h1 class="display-4 fst-italic text-center">Usuarios registrados</h1>
+    <table class="table table-primary table-striped">
+    <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Acciones</th>
+    <tbody>
+         {% for item in lst %}
+            <tr>
+            <th scope="row">{{item.username}}</th>
+            <td>{{item.email}}</td>
+            <td> <a class="btn btn-primary" href="{{path('user_edit', {id: item.id})}}">Modificar</a><td>
+            <td> <a class="btn btn-primary" href="{{path('user_delete', {id: item.id})}}">Eliminar</a><td>
+            </tr>               
+        {% endfor %}
+    </tbody>
+    </table>
+    <a class="btn btn-primary" href="{{path('user_edit')}}">Crear usuario</a>
+    <ul class="pagination">
+        {% if nmaxPages > 1 %}
+            {% for i in 1..nmaxPages %}
+                <li class="page-item"> <a class="page-link" href="{{ path('user', {page: i}) }}">{{ i }}</a></li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+        
+    {% endblock %}
+
+

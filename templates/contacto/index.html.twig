@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block cnt_inner %}
+<div class="container p-4 p-md-5 mb-4">
+    {% if newContacto is null %}
+        {{ form(frmContacto) }}
+    {% else %}
+        <p>Nombre: {{newContacto.nombre}} </p>
+        <p>Email: {{newContacto.email}} </p>
+        <p>Asunto: {{newContacto.asunto}} </p>
+        <p>Mensaje: {{newContacto.mensaje}} </p>
+        <p>Imagen: {{newFilename}} </p>
+    {% endif %}
+<div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+   {% block title %} 
+       Noticias
+   {% endblock %}
+    {% block cnt_inner %}
+         {% for item in lst %}
+            <div class="p-4 p-md-5 mb-4 text-dark rounded bg-light">
+            <div class="col-md-10 px-0">
+                <h1 class="display-4 fst-italic">{{ item.titulo|upper }}</h1>
+                <p class="lead my-3">{{ item.cuerpo }}</p>
+                <p class="lead mb-0">{{ item.categoria.nombre}} {{ item.autor}} {{ item.fechaPublicacion|date("d-m-Y H:i:s") }}</p>
+                <img src="{{item.imagen}}" height="300">
+                <div class="p-4"> 
+                <a class="btn btn-primary" href="{{path('noticia_edit', {id: item.id})}}">Modificar</a>
+                <a class="btn btn-primary" href="{{path('noticia_delete', {id: item.id})}}">Eliminar</a> 
+                <a class="btn btn-primary" href="{{path('noticia_add')}}">Crear noticia</a> 
+                </div> 
+               
+            </div> 
+            
+            </div>  
+            
+        {% endfor %}
+            <ul class="pagination">
+                {% if nmaxPages > 1 %}
+                    {% for i in 1..nmaxPages %}
+                        <li class="page-item"> <a class="page-link" href="{{ path('noticia', {page: i}) }}">{{ i }}</a></li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+    {% endblock %}

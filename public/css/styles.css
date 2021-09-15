@@ -1,0 +1,22 @@
+h1 { font-size: 2rem; margin: 0 0 10px; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: azure;
+}
+
+#footer {
+  text-align: center;
+  background-color: #e9e9e9;
+  padding: 20px 10px 15px;
+  height: 5vh;
+}
+.imagen_right{text-align: right;}
+
+#header > div { float: left; width: 33.33%; min-height: 1px;height: 10vh;
+  background-color: #e9e9e9;
+ 
+}
+#header_center { text-align: center; }
+#header_center > h1{ margin-top: 20px; }
+#header_right { text-align: right; }

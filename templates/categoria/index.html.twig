@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+   {% block title %} 
+       Categorias
+   {% endblock %}
+    {% block cnt_inner %}
+    <h1 class="display-4 fst-italic text-center">Categorias</h1>
+    <table class="table table-primary table-striped">
+    <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Acciones</th>
+    <tbody>
+         {% for item in lst %}
+            <tr>
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.nombre}}</td>
+            <td> <a class="btn btn-primary" href="{{path('categoria_edit', {id: item.id})}}">Modificar</a><td>
+            <td> <a class="btn btn-primary" href="{{path('categoria_delete', {id: item.id})}}">Eliminar</a><td>
+            </tr>               
+        {% endfor %}
+    </tbody>
+    </table>
+    <a class="btn btn-primary" href="{{path('categoria_edit')}}">Crear categoria</a>
+        
+    {% endblock %}
+

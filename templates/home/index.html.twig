@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+   {% block title %} 
+        Blog de Noticias
+   {% endblock %}
+    {% block cnt_inner %}
+    <h1>Formulario de búsqueda</h1>
+    {{ form(frmBusqueda) }}
+    {% if lstNoticias is empty %}
+        {% if isBuscando %} 
+            <p>No se han encontrado resultados para la búsqueda!!</p>
+        {% else %}
+            <p>No hay noticias!!</p>
+        {% endif %}
+    {% else %}
+         {% for item in lstNoticias %}
+            <div class="p-4 p-md-5 mb-4 text-dark rounded bg-light">
+                <div class="col-md-10 px-0">
+                <h1 class="display-4 fst-italic">{{ item.titulo|upper }}</h1>
+                <p class="lead my-3">{{ item.cuerpo }}</p>
+                <p class="lead mb-0">{{ item.categoria.nombre}} {{ item.autor}} {{ item.fechaPublicacion|date("d-m-Y H:i:s") }}</p>
+                <img src="{{item.imagen}}" height="300">
+                </div>
+            </div>
+                          
+        {% endfor %}
+
+        <ul class="pagination">
+                {% if nmaxPages > 1 %}
+                    {% for i in 1..nmaxPages %}
+                        {% set urlParam = {page:i} %}
+
+                        {% if extra_param_paginacion is defined %}
+                            {% set urlParam = urlParam|merge(extra_param_paginacion) %}
+                        {% endif %}
+                        <li class="page-item"> <a class="page-link" href="{{ path(router_vista_paginacion, urlParam) }}">{{ i }}</a></li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+    {% endif %}
+    {% endblock %}
+
